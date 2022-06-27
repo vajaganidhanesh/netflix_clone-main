@@ -1,0 +1,41 @@
+.Login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.831);
+    flex-direction: column;
+}
+
+.container{
+    width:25%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgb(18, 17, 17);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;   
+    row-gap: 10px;
+    /* align-items: center; */
+    /* align-items: flex-start; */
+}
+.welcome_banner{
+    color: rgba(240, 248, 255, 0.731);
+}
+.container > input {
+    background-color: rgba(0, 0, 0, 0.062);
+    border: 1px solid rgba(0, 0, 0, 0.062) ;
+    color: white;
+}
+
+.error_msg{
+    color: rgba(247, 74, 5, 0.865);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_btn{
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
