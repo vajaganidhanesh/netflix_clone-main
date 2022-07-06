@@ -11,9 +11,7 @@ function HomePage()
     let [top,setTop] = useState({});
     let [trending,setTrending] = useState([]);
     let [action,setAction] = useState([]);
-    let [thriller,setThriller] = useState([]);
     let [drama,setDrama] = useState([]);
-    let [superhero,setSuper] = useState([])
 
     useEffect(()=>{
 
@@ -53,17 +51,9 @@ function HomePage()
 
             setDrama(drama);
 
-            let thriller = data.filter((value,index)=>{
-                return value.genre.toUpperCase().includes("thriller".toUpperCase());
-            })
+            
 
-            setThriller(thriller);
-
-            let superhero = data.filter((value,index)=>{
-                return value.genre.toUpperCase().includes("superhero".toUpperCase());
-            })
-
-            setSuper(superhero);
+           
         })
         .catch((err)=>{
             console.log(err);
@@ -181,40 +171,7 @@ function HomePage()
                     </div>
             </section>
 
-            {/* jsx for thriller section */}
-            <section className='TrendingMovies_section'>
-                <div className='section_heading'>Thriller Movies</div>
-                <div className='trending_cards'>
-                    {
-                        thriller.map((movie,index)=>{
-                            return(
-                            
-                                <div className='trend_card' key={index}>
-                                    <div className='card_image'>
-                                        <img className='banner_img card_img' src={movie.posterURL} alt={movie.name}/>
-                                    </div>
-                                    <div className='card_details'>
-                                        <div className='card_title'>
-                                            <span className='movie_name'>{movie.name}</span>
-                                            <div>
-                                                <span className='movie_names me-2'>{movie.genre}</span>
-                                                <span className='movie_names'> imdbRating : {movie.imdbRating}</span>
-                                            </div>
-
-                                            
-                                        </div>
-                                        <div className='card_values'>          
-                                            <Link to={"/player/"+movie._id} className='btn btn-danger'><i className="fa-solid fa-play"></i></Link>      
-                                        </div>
-
-                                    </div>
-                                </div>
-                            
-                            )
-                        })
-                    }
-                    </div>
-            </section>
+           
             
 
             {/* jsx for Drama section */}
