@@ -34,9 +34,7 @@ function Login()
             console.log(data);
             if(data.success===true)
             {
-                // data.profile="all"
                 localStorage.setItem("notflix_loggedin",JSON.stringify(data));
-                // console.log(data.token);
                 navigate('/homepage');
             }
             else{

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link,useNavigate } from 'react-router-dom';
-
+import './header.css'
 
 function Header()
 {
@@ -9,14 +9,12 @@ function Header()
     let [searchAreaVisible,setSearchAreaVisible] = useState(false);
     let [user,setUser] = useState({});
     let [menuVisible,setMenuVisible] = useState(false);
-    // let [profile,setProfile] = useState(JSON.parse(localStorage.getItem("notflix_loggedin")).profile)
     let navigate = useNavigate();
 
     // to get single movie information
     useEffect(()=>{
         
         let token = JSON.parse(localStorage.getItem("notflix_loggedin")).token;
-        // let profile = JSON.parse(localStorage.getItem("notflix_loggedin")).profile;
 
 
         fetch("http://localhost:8000/movies",{
@@ -76,29 +74,48 @@ function Header()
         navigate('/login')
     }
 
+    let [navtoggle,setNavtoggle] =useState(false);
+
+    function navbar(){
+
+    if(navtoggle===false){
+        document.getElementById("nav_links").style.height="auto";
+        document.getElementById("icon").classList.remove("fa-bars");
+        document.getElementById("icon").classList.add("fa-xmark");
+
+        setNavtoggle(true);
+    }
+    else{
+        document.getElementById("nav_links").style.height="0px";
+        document.getElementById("icon").classList.remove("fa-xmark");
+        document.getElementById("icon").classList.add("fa-bars");
+        setNavtoggle(false);
+    }
+}
+
     return(
         <div>
             <header className='header'>
                 <div className='navibar'>
-                    <div className='nav_logo'>
-                        <Link to="/homepage" className='not_logo'>
-                            <h2>NOTFLIX</h2>
-                        </Link>
-                        <div className='nav_links'>
-                            <ul>
-                                <li>Home</li>
-                                <li>Tv Shows</li>
-                                <li>Movies</li>
-                                <li>Recently Added</li>
-                                <li>My List</li>
-                            </ul>
+                    <div className='not_logo' onClick={()=>{
+                            navigate('/homepage')
+                        }}>
+                        <h2>NOTFLIX</h2>
+                        <div className="mobile">
+                            <i className="fa-solid fa-bars" id="icon" onClick={()=>{
+                                navbar();
+                            }}></i>
                         </div>
                     </div>
-                    <div className='nav_icons'>
-                      
-                        <ul>
+                    <div className='nav_links nav_container'>
+                        <ul className="navb_links" id="nav_links">
+                            <li className='nav_link'>Home</li>
+                            <li className='nav_link'>Tv Shows</li>
+                            <li className='nav_link'>Movies</li>
+                            <li className='nav_link'>Recently Added</li>
+                            <li className='nav_link'>My List</li>
                             <li className='nav_input'>
-                                <input className=' form-control me-0' type="text" placeholder="Search" 
+                                <input className=' form-control' type="text" placeholder="Search" 
                                 onChange={(event)=>{
                                     searchMovies(event.target.value)
                                 }}
@@ -109,11 +126,10 @@ function Header()
                                         setSearchAreaVisible(false)
                                     }
                                 }} 
-                                 />
+                                    />
                             </li>
-                            <li className="user_name">{user.name}</li>
                             <li><i className="fa-solid fa-user" 
-                             onClick={()=>{
+                                onClick={()=>{
                                 if(menuVisible === false)
                                 {
                                     setMenuVisible(true)
@@ -122,9 +138,9 @@ function Header()
                                 {
                                     setMenuVisible(false)
                                 }
-                             }}></i></li>
+                                }}></i>
+                            </li>
                         </ul>
-
                     </div>
                 </div>
 
@@ -133,7 +149,6 @@ function Header()
                     (
                         <div className="user_details">
                             <ul>
-                                {/* <li onClick={changeProfile}>kids notflix</li> */}
                                 <li onClick={logOut}>logout</li>
                             </ul>
                         </div>

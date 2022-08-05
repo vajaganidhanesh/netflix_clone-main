@@ -109,7 +109,7 @@ function HomePage()
                             
                                 <div className='trend_card' key={index}>
                                     <div className='card_image'>
-                                        <img className='banner_img card_img' src={movie.posterURL} alt={movie.name}/>
+                                        <img className='card_img' src={movie.posterURL} alt={movie.name}/>
                                     </div>
                                     <div className='card_details'>
                                         <div className='card_title'>
@@ -145,7 +145,7 @@ function HomePage()
                             
                                 <div className='trend_card' key={index}>
                                     <div className='card_image'>
-                                        <img className='banner_img card_img' src={movie.posterURL} alt={movie.img}/>
+                                        <img className=' card_img' src={movie.posterURL} alt={movie.img}/>
                                     </div>
                                     <div className='card_details'>
                                         <div className='card_title'>
@@ -184,7 +184,7 @@ function HomePage()
                             
                                 <div className='trend_card' key={index}>
                                     <div className='card_image'>
-                                        <img className='banner_img card_img' src={movie.posterURL} alt={movie.name}/>
+                                        <img className='card_img' src={movie.posterURL} alt={movie.name}/>
                                     </div>
                                     <div className='card_details'>
                                         <div className='card_title'>
