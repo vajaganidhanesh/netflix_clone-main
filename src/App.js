@@ -31,8 +31,8 @@ function App() {
             <Protect>
               <Player/>
             </Protect>
-          }
-          />
+          }/>
+          
           <Route path='*' element={<Notfound/>}/>
         </Routes>
       </BrowserRouter>

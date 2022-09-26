@@ -79,14 +79,14 @@ function Header()
     function navbar(){
 
     if(navtoggle===false){
-        document.getElementById("nav_links").style.height="auto";
+        document.getElementById("navb_link").style.height="auto";
         document.getElementById("icon").classList.remove("fa-bars");
         document.getElementById("icon").classList.add("fa-xmark");
 
         setNavtoggle(true);
     }
     else{
-        document.getElementById("nav_links").style.height="0px";
+        document.getElementById("navb_link").style.height="0px";
         document.getElementById("icon").classList.remove("fa-xmark");
         document.getElementById("icon").classList.add("fa-bars");
         setNavtoggle(false);
@@ -108,7 +108,7 @@ function Header()
                         </div>
                     </div>
                     <div className='nav_links nav_container'>
-                        <ul className="navb_links" id="nav_links">
+                        <ul className="navb_links" id="navb_link">
                             <li className='nav_link'>Home</li>
                             <li className='nav_link'>Tv Shows</li>
                             <li className='nav_link'>Movies</li>
